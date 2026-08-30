@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ Session 1 — Environment Setup: RISC-V Toolchain, RTL Simulation, and Physical Design Flow
+⚡ Session 1 — Getting the Toolchain Running: RISC-V, RTL Simulation, and the Physical Design Flow
 
 ### *Three Codespaces, One Local Machine: Standing Up the Full RTL-to-GDS Toolchain*
 
