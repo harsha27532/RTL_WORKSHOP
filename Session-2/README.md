@@ -74,7 +74,8 @@ end
 endmodule
 ```
 
-<img width="700" alt="bad_mux.v source code" src="session2_images/bad_mux_code.jpeg" />
+<img width="625" height="502" alt="Screenshot 2026-08-30 233620" src="https://github.com/user-attachments/assets/2ecf1600-a9f4-4d56-a227-960b559c5781" />
+
 
 **Figure 1:** `bad_mux.v` source.
 
@@ -85,7 +86,8 @@ iverilog -o bad_mux bad_mux.v tb_bad_mux.v
 gtkwave bad_mux.vcd
 ```
 
-<img width="700" alt="bad_mux simulation waveform" src="session2_images/bad_mux_waveform.jpeg" />
+<img width="385" height="612" alt="Screenshot 2026-08-30 233604" src="https://github.com/user-attachments/assets/52323c47-d0ec-484a-823a-0d6c05cbcbf6" />
+
 
 **Figure 2:** `bad_mux` simulation waveform.
 
@@ -121,8 +123,7 @@ abc -liberty sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 write_verilog good_mux_net.v
 ```
-
-<img width="700" alt="good_mux synthesized schematic and netlist" src="session2_images/good_mux_netlist_schematic.jpeg" />
+<img width="1308" height="667" alt="Screenshot 2026-08-30 233651" src="https://github.com/user-attachments/assets/d31c7d83-f97c-4ecd-9e29-9df71bfc2669" />
 
 **Figure 3:** `good_mux` synthesized schematic and netlist.
 
@@ -130,13 +131,10 @@ write_verilog good_mux_net.v
 
 Out of curiosity, the actual `.lib` entry for this cell was opened directly to see what synthesis was choosing from — timing arcs, leakage power for every input combination, and cell area:
 
-<img width="700" alt="sky130_fd_sc_hd__mux2_1 liberty file entry, part 1" src="session2_images/liberty_mux2_cell_1.jpeg" />
+<img width="393" height="557" alt="Screenshot 2026-08-30 233711" src="https://github.com/user-attachments/assets/5c1a5fdb-454c-45b4-bce3-87324edc733e" />
+
 
 **Figure 4:** `sky130_fd_sc_hd__mux2_1` liberty entry — timing and power data (part 1).
-
-<img width="700" alt="sky130_fd_sc_hd__mux2_1 liberty file entry, part 2" src="session2_images/liberty_mux2_cell_2.jpeg" />
-
-**Figure 5:** `sky130_fd_sc_hd__mux2_1` liberty entry (part 2).
 
 > ✨ **Insight:** This is the same `sky130_fd_sc_hd__mux2_1` definition Yosys picked in the schematic above — seeing the raw `.lib` entry makes it clear synthesis isn't picking cells arbitrarily; every leakage-power value, area, and timing arc is fully characterized ahead of time.
 
@@ -155,23 +153,22 @@ show
 write_verilog -noattr good_counter_netlist.v
 ```
 
-<img width="700" alt="good_counter synthesized schematic" src="session2_images/good_counter_schematic1.jpeg" />
+<img width="962" height="188" alt="Screenshot 2026-08-30 233816" src="https://github.com/user-attachments/assets/fc54481e-3902-48d2-9e36-33f3f816ae42" />
 
-**Figure 6:** `good_counter` synthesized schematic.
 
-<img width="700" alt="good_counter detailed DFF schematic" src="session2_images/good_counter_dff_detail.jpeg" />
+**Figure 5:** `good_counter` synthesized schematic.
 
-**Figure 7:** Detailed view of the counter's flip-flops.
+<img width="1047" height="312" alt="Screenshot 2026-08-30 233854" src="https://github.com/user-attachments/assets/13cc934b-5ea9-41a9-843f-429cd4b7e229" />
+
+
+**Figure 6:** Detailed view of the counter's flip-flops.
 
 > ✅ **Result:** The counter's two bits (`cnt[0]`, `cnt[1]`) each map onto their own `$_DFF_PP0_` flip-flop, with `sky130_fd_sc_hd__nor2_1` and `nor2b_1` cells forming the next-state logic feeding them.
 
-<img width="700" alt="good_counter_netlist.v alongside its schematic" src="session2_images/good_counter_netlist_and_schematic.jpeg" />
+<img width="1667" height="832" alt="Screenshot 2026-08-31 001307" src="https://github.com/user-attachments/assets/f9aaa0ad-1b9c-450d-aff3-0467cc87d01e" />
 
-**Figure 8:** Netlist and schematic shown side by side.
+**Figure 7:** Netlist and schematic shown side by side.
 
-<img width="700" alt="good_counter_netlist.v full contents" src="session2_images/good_counter_netlist_code.jpeg" />
-
-**Figure 9:** Full contents of `good_counter_netlist.v`.
 
 > ✨ **Insight:** Reading the generated netlist directly confirms what the schematic shows: two separate `always @(posedge clk, posedge reset)` blocks, one per bit of `cnt`, each driven by its own NOR-based next-state logic rather than one shared 2-bit register update.
 
@@ -189,9 +186,9 @@ synth -top multiple_modules
 show multiple_modules
 ```
 
-<img width="700" alt="multiple_modules hierarchical schematic" src="session2_images/multiple_modules_hier.jpeg" />
+<img width="337" height="85" alt="Screenshot 2026-08-30 233903" src="https://github.com/user-attachments/assets/ba741134-f30a-4108-9088-07dae4bf7a7e" />
 
-**Figure 10:** Hierarchical schematic — module boundaries preserved.
+**Figure 8:** Hierarchical schematic — module boundaries preserved.
 
 > ✅ **Result:** At this level, `sub_module1` and `sub_module2` still appear as their own labeled blocks (`u1`, `u2`) in the schematic — the module boundaries from the RTL are preserved rather than merged.
 
@@ -202,9 +199,10 @@ flatten
 show multiple_modules
 ```
 
-<img width="700" alt="multiple_modules flattened schematic showing gate-level cells directly" src="session2_images/multiple_modules_flat.jpeg" />
+<img width="1000" height="172" alt="Screenshot 2026-08-30 233912" src="https://github.com/user-attachments/assets/627c2b18-3926-4f5b-8eae-2de21bbd2c3a" />
 
-**Figure 11:** Flattened schematic — gates exposed directly, no sub-module boundaries.
+
+**Figure 9:** Flattened schematic — gates exposed directly, no sub-module boundaries.
 
 > ✨ **Insight:** After flattening, those same two blocks disappear — `u1.a`, `u1.b`, `u1.y` and `u2.a`, `u2.b`, `u2.y` now sit directly on the gates themselves (`sky130_fd_sc_hd__and2_0` and `sky130_fd_sc_hd__or2_0`), with the `$scopeinfo` markers being the only trace left of the original module names. This is the concrete difference between hierarchical and flat synthesis: same logic, same two gates either way, but the flattened netlist has no sub-module boundaries left to read.
 
@@ -212,22 +210,7 @@ show multiple_modules
 
 ## 5️⃣ BabySoC — Cloning, Exploring RVMYTH, and Pre-Synthesis Simulation
 
-### 📥 5.1 Cloning the Repository
-
-The second half of the day moved to a different project — **VSDBabySoC**, a small RISC-V-based SoC design:
-
-```bash
-git clone https://github.com/manili/VSDBabySoC
-cd VSDBabySoC
-```
-
-<img width="700" alt="VSDBabySoC module directory listing" src="session2_images/babysoc_module_listing.jpeg" />
-
-**Figure 12:** VSDBabySoC `module/` directory listing.
-
-> The `module/` directory contains the SoC's building blocks: `avsddac.v` and `avsdpll.v` (analog DAC and PLL models), `clk_gate.v`, the RVMYTH core (`rvmyth.v`, `rvmyth_gen.v`, `rvmyth.tlv`), and both pre-synthesis and post-synthesis testbenches.
-
-### 🔍 5.2 Exploring the RVMYTH Core
+### 🔍 5.1 Exploring the RVMYTH Core
 
 ```verilog
 // Custom module interface for BabySoC.
@@ -241,13 +224,14 @@ wire clk = CLK;
 `include "rvmyth_gen.v" //_\TLV
 ```
 
-<img width="700" alt="rvmyth.v source showing module interface and instruction trace" src="session2_images/rvmyth_code.jpeg" />
+<img width="462" height="626" alt="Screenshot 2026-08-30 233932" src="https://github.com/user-attachments/assets/d43b4d26-b5bb-48ed-ba3c-d32c0a87a3b4" />
 
-**Figure 13:** `rvmyth.v` source, showing the module interface and generated instruction trace.
+
+**Figure 10:** `rvmyth.v` source, showing the module interface and generated instruction trace.
 
 > ✨ **Insight:** RVMYTH is a small RISC-V core written in **TL-Verilog** and generated into plain Verilog (`rvmyth_gen.v`). The comments in the generated file trace out its instruction sequence directly — a small loop built from `ADDI`, `ADD`, `SUB`, and `BNE`/`BEQ` — which is what eventually drives the `OUT` register feeding the rest of the SoC.
 
-### 🧪 5.3 Running the Pre-Synthesis Simulation
+### 🧪 5.2 Running the Pre-Synthesis Simulation
 
 ```verilog
 `ifdef PRE_SYNTH_SIM
@@ -286,9 +270,10 @@ module vsdbabysoc_tb;
     end
 ```
 
-<img width="700" alt="vsdbabysoc_tb testbench source with PRE_SYNTH_SIM / POST_SYNTH_SIM switch" src="session2_images/babysoc_testbench_code.jpeg" />
+<img width="396" height="658" alt="Screenshot 2026-08-30 233950" src="https://github.com/user-attachments/assets/b6f5e2e1-c47c-4b3c-a2aa-162766aa9ce5" />
 
-**Figure 14:** Testbench source, showing the `PRE_SYNTH_SIM` / `POST_SYNTH_SIM` macro switch.
+
+**Figure 11:** Testbench source, showing the `PRE_SYNTH_SIM` / `POST_SYNTH_SIM` macro switch.
 
 > ✨ **Insight:** The testbench uses a `PRE_SYNTH_SIM` / `POST_SYNTH_SIM` macro switch to include either the original RTL sources or the synthesized netlist plus SKY130 primitives — the same testbench works for both stages just by defining a different macro at compile time.
 
@@ -298,9 +283,10 @@ vvp pre_synth_sim.out
 gtkwave pre_synth_sim.vcd
 ```
 
-<img width="700" alt="Pre-synthesis simulation waveform for VSDBabySoC" src="session2_images/babysoc_presynth_waveform.jpeg" />
+<img width="1261" height="616" alt="Screenshot 2026-08-30 234005" src="https://github.com/user-attachments/assets/3e953d26-61ba-41ed-bebd-eb29242fd0b4" />
 
-**Figure 15:** BabySoC pre-synthesis simulation waveform.
+
+**Figure 12:** BabySoC pre-synthesis simulation waveform.
 
 > ✅ **Result:** The waveform shows `CLK` toggling, `RV_TO_DAC[9:0]` counting through values (`334` at the marker), and `OUT` responding as the DAC's analog approximation of that digital value rises and falls — confirming the RVMYTH core, clock gating, and DAC model are all functioning together correctly at the RTL level, before synthesis is involved at all.
 
