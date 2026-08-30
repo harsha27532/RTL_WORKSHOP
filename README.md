@@ -33,9 +33,9 @@ Each session has its own folder with a detailed README, the Verilog source/testb
 
 | Session | Topics Covered |
 |:-:|---|
-| [Session 1](./Session_1) | 🧩 RTL design/testbench basics · Icarus Verilog simulation · GTKWave · intro to Yosys synthesis · sync vs async reset |
-| [Session 2](./Session_2) | ⚙️ Combinational/sequential logic optimization · GLS · synthesis-simulation mismatch · blocking vs non-blocking · latch inference · generate/RCA |
-| [Session 3](./Session_3) | 🖥️ BabySoC simulation — functional modeling and verification of a small SoC design, bringing RTL, synthesis, and system-level integration together |
+| [Session 1](./Session-1) | 🧩 RTL design/testbench basics · Icarus Verilog simulation · GTKWave · intro to Yosys synthesis · sync vs async reset |
+| [Session 2](./Session-2) | ⚙️ Combinational/sequential logic optimization · GLS · synthesis-simulation mismatch · blocking vs non-blocking · latch inference · generate/RCA |
+| [Session 3](./Session-3) | 🖥️ BabySoC simulation — functional modeling and verification of a small SoC design, bringing RTL, synthesis, and system-level integration together |
 
 </div>
 
