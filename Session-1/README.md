@@ -211,7 +211,7 @@ Lab files and setup scripts referenced from the dashboard were downloaded locall
 
 **Figure 6:** vsdiat dashboard accessed locally on Ubuntu.
 
-<img width="352" height="377" alt="Screenshot 2026-08-30 224659" src="https://github.com/user-attachments/assets/947e57b8-dfa6-408c-847e-4aca3759c69f" />
+<img width="352" height="377" alt="Screenshot 2026-08-30 224659" src="https://github.com/user-attachments/assets/97360703-5ed7-4cfc-8bfb-7757edc66ba8" />
 
 
 **Figure 7:** Local workshop VM used as a reference environment.
