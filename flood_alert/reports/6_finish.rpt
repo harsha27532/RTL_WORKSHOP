@@ -1,0 +1,603 @@
+
+==========================================================================
+finish report_tns
+--------------------------------------------------------------------------
+tns max -24.25
+
+==========================================================================
+finish report_wns
+--------------------------------------------------------------------------
+wns max -2.70
+
+==========================================================================
+finish report_worst_slack
+--------------------------------------------------------------------------
+worst slack max -2.70
+
+==========================================================================
+finish report_clock_min_period
+--------------------------------------------------------------------------
+clk period_min = 12.70 fmax = 78.75
+
+==========================================================================
+finish report_clock_skew
+--------------------------------------------------------------------------
+Clock clk
+   1.47 source latency rise_count[6]$_DFFE_PP0P_/CLK ^
+  -1.46 target latency rise_count[0]$_DFFE_PP0P_/CLK ^
+   0.00 CRPR
+--------------
+   0.02 setup skew
+
+
+==========================================================================
+finish report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: sensor_fault$_DFF_PP0_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: siren$_DFF_PP0_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+Corner: ff_n40C_1v95
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.01    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_8)
+     4    0.03    0.05    0.09    0.09 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_8)
+                                         clknet_0_clk (net)
+                  0.05    0.00    0.09 ^ clkbuf_2_2__f_clk/A (sky130_fd_sc_hd__clkbuf_8)
+     7    0.03    0.05    0.10    0.19 ^ clkbuf_2_2__f_clk/X (sky130_fd_sc_hd__clkbuf_8)
+                                         clknet_2_2__leaf_clk (net)
+                  0.05    0.00    0.19 ^ sensor_fault$_DFF_PP0_/CLK (sky130_fd_sc_hd__dfrtp_1)
+     2    0.00    0.04    0.21    0.40 ^ sensor_fault$_DFF_PP0_/Q (sky130_fd_sc_hd__dfrtp_1)
+                                         net11 (net)
+                  0.04    0.00    0.40 ^ _140_/B (sky130_fd_sc_hd__or2_2)
+     1    0.00    0.02    0.06    0.46 ^ _140_/X (sky130_fd_sc_hd__or2_2)
+                                         _004_ (net)
+                  0.02    0.00    0.46 ^ siren$_DFF_PP0_/D (sky130_fd_sc_hd__dfrtp_1)
+                                  0.46   data arrival time
+
+                          0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.01    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_8)
+     4    0.03    0.05    0.09    0.09 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_8)
+                                         clknet_0_clk (net)
+                  0.05    0.00    0.09 ^ clkbuf_2_2__f_clk/A (sky130_fd_sc_hd__clkbuf_8)
+     7    0.03    0.05    0.10    0.19 ^ clkbuf_2_2__f_clk/X (sky130_fd_sc_hd__clkbuf_8)
+                                         clknet_2_2__leaf_clk (net)
+                  0.05    0.00    0.19 ^ siren$_DFF_PP0_/CLK (sky130_fd_sc_hd__dfrtp_1)
+                          0.00    0.19   clock reconvergence pessimism
+                         -0.02    0.17   library hold time
+                                  0.17   data required time
+-----------------------------------------------------------------------------
+                                  0.17   data required time
+                                 -0.46   data arrival time
+-----------------------------------------------------------------------------
+                                  0.29   slack (MET)
+
+
+
+==========================================================================
+finish report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: water_level[0]$_DFFE_PP0P_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: previous_level[0]$_DFFE_PP0P_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+Corner: ss_n40C_1v28
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.01    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_8)
+     4    0.03    0.42    0.60    0.60 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_8)
+                                         clknet_0_clk (net)
+                  0.42    0.00    0.60 ^ clkbuf_2_2__f_clk/A (sky130_fd_sc_hd__clkbuf_8)
+     7    0.03    0.42    0.86    1.46 ^ clkbuf_2_2__f_clk/X (sky130_fd_sc_hd__clkbuf_8)
+                                         clknet_2_2__leaf_clk (net)
+                  0.42    0.00    1.46 ^ water_level[0]$_DFFE_PP0P_/CLK (sky130_fd_sc_hd__dfrtp_1)
+     2    0.01    0.63    2.45    3.91 ^ water_level[0]$_DFFE_PP0P_/Q (sky130_fd_sc_hd__dfrtp_1)
+                                         water_level[0] (net)
+                  0.63    0.00    3.91 ^ _133_/A (sky130_fd_sc_hd__inv_4)
+     2    0.01    0.11    0.39    4.31 v _133_/Y (sky130_fd_sc_hd__inv_4)
+                                         _019_ (net)
+                  0.11    0.00    4.31 v _149_/A (sky130_fd_sc_hd__ha_4)
+     1    0.01    0.15    1.15    5.46 v _149_/COUT (sky130_fd_sc_hd__ha_4)
+                                         _075_ (net)
+                  0.15    0.00    5.46 v _143_/CIN (sky130_fd_sc_hd__fa_2)
+     2    0.01    0.43    3.24    8.70 v _143_/COUT (sky130_fd_sc_hd__fa_2)
+                                         _006_ (net)
+                  0.43    0.00    8.70 v _080_/B1 (sky130_fd_sc_hd__a21o_1)
+     3    0.02    0.31    1.38   10.08 v _080_/X (sky130_fd_sc_hd__a21o_1)
+                                         _057_ (net)
+                  0.31    0.00   10.08 v _124_/A (sky130_fd_sc_hd__nand3_4)
+     2    0.01    0.39    0.46   10.54 ^ _124_/Y (sky130_fd_sc_hd__nand3_4)
+                                         _050_ (net)
+                  0.39    0.00   10.54 ^ _138_/S (sky130_fd_sc_hd__mux2_4)
+     1    0.00    0.26    2.16   12.70 v _138_/X (sky130_fd_sc_hd__mux2_4)
+                                         _034_ (net)
+                  0.26    0.00   12.70 v previous_level[0]$_DFFE_PP0P_/D (sky130_fd_sc_hd__dfrtp_1)
+                                 12.70   data arrival time
+
+                         10.00   10.00   clock clk (rise edge)
+                          0.00   10.00   clock source latency
+     1    0.01    0.00    0.00   10.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00   10.00 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_8)
+     4    0.03    0.42    0.60   10.60 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_8)
+                                         clknet_0_clk (net)
+                  0.42    0.00   10.60 ^ clkbuf_2_3__f_clk/A (sky130_fd_sc_hd__clkbuf_8)
+     7    0.03    0.44    0.87   11.47 ^ clkbuf_2_3__f_clk/X (sky130_fd_sc_hd__clkbuf_8)
+                                         clknet_2_3__leaf_clk (net)
+                  0.44    0.00   11.47 ^ previous_level[0]$_DFFE_PP0P_/CLK (sky130_fd_sc_hd__dfrtp_1)
+                          0.00   11.47   clock reconvergence pessimism
+                         -1.47   10.00   library setup time
+                                 10.00   data required time
+-----------------------------------------------------------------------------
+                                 10.00   data required time
+                                -12.70   data arrival time
+-----------------------------------------------------------------------------
+                                 -2.70   slack (VIOLATED)
+
+
+
+==========================================================================
+finish report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: water_level[0]$_DFFE_PP0P_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: previous_level[0]$_DFFE_PP0P_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+Corner: ss_n40C_1v28
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.01    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_8)
+     4    0.03    0.42    0.60    0.60 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_8)
+                                         clknet_0_clk (net)
+                  0.42    0.00    0.60 ^ clkbuf_2_2__f_clk/A (sky130_fd_sc_hd__clkbuf_8)
+     7    0.03    0.42    0.86    1.46 ^ clkbuf_2_2__f_clk/X (sky130_fd_sc_hd__clkbuf_8)
+                                         clknet_2_2__leaf_clk (net)
+                  0.42    0.00    1.46 ^ water_level[0]$_DFFE_PP0P_/CLK (sky130_fd_sc_hd__dfrtp_1)
+     2    0.01    0.63    2.45    3.91 ^ water_level[0]$_DFFE_PP0P_/Q (sky130_fd_sc_hd__dfrtp_1)
+                                         water_level[0] (net)
+                  0.63    0.00    3.91 ^ _133_/A (sky130_fd_sc_hd__inv_4)
+     2    0.01    0.11    0.39    4.31 v _133_/Y (sky130_fd_sc_hd__inv_4)
+                                         _019_ (net)
+                  0.11    0.00    4.31 v _149_/A (sky130_fd_sc_hd__ha_4)
+     1    0.01    0.15    1.15    5.46 v _149_/COUT (sky130_fd_sc_hd__ha_4)
+                                         _075_ (net)
+                  0.15    0.00    5.46 v _143_/CIN (sky130_fd_sc_hd__fa_2)
+     2    0.01    0.43    3.24    8.70 v _143_/COUT (sky130_fd_sc_hd__fa_2)
+                                         _006_ (net)
+                  0.43    0.00    8.70 v _080_/B1 (sky130_fd_sc_hd__a21o_1)
+     3    0.02    0.31    1.38   10.08 v _080_/X (sky130_fd_sc_hd__a21o_1)
+                                         _057_ (net)
+                  0.31    0.00   10.08 v _124_/A (sky130_fd_sc_hd__nand3_4)
+     2    0.01    0.39    0.46   10.54 ^ _124_/Y (sky130_fd_sc_hd__nand3_4)
+                                         _050_ (net)
+                  0.39    0.00   10.54 ^ _138_/S (sky130_fd_sc_hd__mux2_4)
+     1    0.00    0.26    2.16   12.70 v _138_/X (sky130_fd_sc_hd__mux2_4)
+                                         _034_ (net)
+                  0.26    0.00   12.70 v previous_level[0]$_DFFE_PP0P_/D (sky130_fd_sc_hd__dfrtp_1)
+                                 12.70   data arrival time
+
+                         10.00   10.00   clock clk (rise edge)
+                          0.00   10.00   clock source latency
+     1    0.01    0.00    0.00   10.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00   10.00 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_8)
+     4    0.03    0.42    0.60   10.60 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_8)
+                                         clknet_0_clk (net)
+                  0.42    0.00   10.60 ^ clkbuf_2_3__f_clk/A (sky130_fd_sc_hd__clkbuf_8)
+     7    0.03    0.44    0.87   11.47 ^ clkbuf_2_3__f_clk/X (sky130_fd_sc_hd__clkbuf_8)
+                                         clknet_2_3__leaf_clk (net)
+                  0.44    0.00   11.47 ^ previous_level[0]$_DFFE_PP0P_/CLK (sky130_fd_sc_hd__dfrtp_1)
+                          0.00   11.47   clock reconvergence pessimism
+                         -1.47   10.00   library setup time
+                                 10.00   data required time
+-----------------------------------------------------------------------------
+                                 10.00   data required time
+                                -12.70   data arrival time
+-----------------------------------------------------------------------------
+                                 -2.70   slack (VIOLATED)
+
+
+
+==========================================================================
+finish report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+
+==========================================================================
+finish max_slew_check_slack
+--------------------------------------------------------------------------
+0.6162346601486206
+
+==========================================================================
+finish max_slew_check_limit
+--------------------------------------------------------------------------
+1.5
+
+==========================================================================
+finish max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.4108
+
+==========================================================================
+finish max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+finish max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+finish max_capacitance_check_slack
+--------------------------------------------------------------------------
+0.015002336353063583
+
+==========================================================================
+finish max_capacitance_check_limit
+--------------------------------------------------------------------------
+0.01755799911916256
+
+==========================================================================
+finish max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.8544
+
+==========================================================================
+finish max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+finish max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+finish max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+finish setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 15
+
+==========================================================================
+finish hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+finish report_checks -path_delay max reg to reg
+--------------------------------------------------------------------------
+Startpoint: water_level[0]$_DFFE_PP0P_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: previous_level[0]$_DFFE_PP0P_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+Corner: ss_n40C_1v28
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock source latency
+   0.00    0.00 ^ clk (in)
+   0.60    0.60 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_8)
+   0.86    1.46 ^ clkbuf_2_2__f_clk/X (sky130_fd_sc_hd__clkbuf_8)
+   0.00    1.46 ^ water_level[0]$_DFFE_PP0P_/CLK (sky130_fd_sc_hd__dfrtp_1)
+   2.45    3.91 ^ water_level[0]$_DFFE_PP0P_/Q (sky130_fd_sc_hd__dfrtp_1)
+   0.40    4.31 v _133_/Y (sky130_fd_sc_hd__inv_4)
+   1.15    5.46 v _149_/COUT (sky130_fd_sc_hd__ha_4)
+   3.24    8.70 v _143_/COUT (sky130_fd_sc_hd__fa_2)
+   1.38   10.08 v _080_/X (sky130_fd_sc_hd__a21o_1)
+   0.46   10.54 ^ _124_/Y (sky130_fd_sc_hd__nand3_4)
+   2.16   12.70 v _138_/X (sky130_fd_sc_hd__mux2_4)
+   0.00   12.70 v previous_level[0]$_DFFE_PP0P_/D (sky130_fd_sc_hd__dfrtp_1)
+          12.70   data arrival time
+
+  10.00   10.00   clock clk (rise edge)
+   0.00   10.00   clock source latency
+   0.00   10.00 ^ clk (in)
+   0.60   10.60 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_8)
+   0.87   11.47 ^ clkbuf_2_3__f_clk/X (sky130_fd_sc_hd__clkbuf_8)
+   0.00   11.47 ^ previous_level[0]$_DFFE_PP0P_/CLK (sky130_fd_sc_hd__dfrtp_1)
+   0.00   11.47   clock reconvergence pessimism
+  -1.47   10.00   library setup time
+          10.00   data required time
+---------------------------------------------------------
+          10.00   data required time
+         -12.70   data arrival time
+---------------------------------------------------------
+          -2.70   slack (VIOLATED)
+
+
+
+==========================================================================
+finish report_checks -path_delay min reg to reg
+--------------------------------------------------------------------------
+Startpoint: sensor_fault$_DFF_PP0_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: siren$_DFF_PP0_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+Corner: ff_n40C_1v95
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock source latency
+   0.00    0.00 ^ clk (in)
+   0.09    0.09 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_8)
+   0.10    0.19 ^ clkbuf_2_2__f_clk/X (sky130_fd_sc_hd__clkbuf_8)
+   0.00    0.19 ^ sensor_fault$_DFF_PP0_/CLK (sky130_fd_sc_hd__dfrtp_1)
+   0.21    0.40 ^ sensor_fault$_DFF_PP0_/Q (sky130_fd_sc_hd__dfrtp_1)
+   0.06    0.46 ^ _140_/X (sky130_fd_sc_hd__or2_2)
+   0.00    0.46 ^ siren$_DFF_PP0_/D (sky130_fd_sc_hd__dfrtp_1)
+           0.46   data arrival time
+
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock source latency
+   0.00    0.00 ^ clk (in)
+   0.09    0.09 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_8)
+   0.10    0.19 ^ clkbuf_2_2__f_clk/X (sky130_fd_sc_hd__clkbuf_8)
+   0.00    0.19 ^ siren$_DFF_PP0_/CLK (sky130_fd_sc_hd__dfrtp_1)
+   0.00    0.19   clock reconvergence pessimism
+  -0.02    0.17   library hold time
+           0.17   data required time
+---------------------------------------------------------
+           0.17   data required time
+          -0.46   data arrival time
+---------------------------------------------------------
+           0.29   slack (MET)
+
+
+
+==========================================================================
+finish critical path target clock latency max path
+--------------------------------------------------------------------------
+0
+
+==========================================================================
+finish critical path target clock latency min path
+--------------------------------------------------------------------------
+0
+
+==========================================================================
+finish critical path source clock latency min path
+--------------------------------------------------------------------------
+0
+
+==========================================================================
+finish critical path delay
+--------------------------------------------------------------------------
+12.6990
+
+==========================================================================
+finish critical path slack
+--------------------------------------------------------------------------
+-2.6979
+
+==========================================================================
+finish slack div critical path delay
+--------------------------------------------------------------------------
+-21.244980
+
+==========================================================================
+finish report_power
+--------------------------------------------------------------------------
+Corner: ff_100C_1v65
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.18e-04   1.22e-05   6.14e-07   1.31e-04  38.2%
+Combinational          7.67e-05   5.19e-05   5.89e-07   1.29e-04  37.8%
+Clock                  4.09e-05   4.09e-05   6.00e-08   8.19e-05  24.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.35e-04   1.05e-04   1.26e-06   3.42e-04 100.0%
+                          68.9%      30.7%       0.4%
+Corner: ff_100C_1v95
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.66e-04   1.70e-05   9.76e-07   1.84e-04  37.7%
+Combinational          1.14e-04   7.25e-05   1.01e-06   1.88e-04  38.4%
+Clock                  5.93e-05   5.71e-05   1.04e-07   1.17e-04  23.9%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  3.40e-04   1.47e-04   2.09e-06   4.88e-04 100.0%
+                          69.6%      30.0%       0.4%
+Corner: ff_n40C_1v56
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.03e-04   1.09e-05   1.13e-07   1.14e-04  38.9%
+Combinational          6.21e-05   4.64e-05   9.83e-11   1.09e-04  37.0%
+Clock                  3.41e-05   3.65e-05   1.21e-11   7.07e-05  24.1%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.99e-04   9.38e-05   1.13e-07   2.93e-04 100.0%
+                          68.0%      32.0%       0.0%
+Corner: ff_n40C_1v65
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.15e-04   1.22e-05   1.13e-07   1.28e-04  38.8%
+Combinational          6.99e-05   5.19e-05   1.72e-10   1.22e-04  37.0%
+Clock                  3.84e-05   4.09e-05   2.42e-11   7.93e-05  24.1%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.24e-04   1.05e-04   1.13e-07   3.29e-04 100.0%
+                          68.0%      31.9%       0.0%
+Corner: ff_n40C_1v76
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.31e-04   1.39e-05   1.13e-07   1.45e-04  38.7%
+Combinational          8.00e-05   5.90e-05   3.52e-10   1.39e-04  37.1%
+Clock                  4.39e-05   4.65e-05   5.42e-11   9.04e-05  24.1%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.55e-04   1.19e-04   1.14e-07   3.75e-04 100.0%
+                          68.1%      31.9%       0.0%
+Corner: ff_n40C_1v95
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.62e-04   1.70e-05   1.13e-07   1.79e-04  38.6%
+Combinational          9.97e-05   7.25e-05   1.13e-09   1.72e-04  37.2%
+Clock                  5.46e-05   5.71e-05   1.90e-10   1.12e-04  24.1%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  3.16e-04   1.47e-04   1.15e-07   4.63e-04 100.0%
+                          68.3%      31.7%       0.0%
+Corner: ss_100C_1v40
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             6.59e-05   8.77e-06   4.19e-07   7.51e-05  33.2%
+Combinational          5.39e-05   3.74e-05   3.60e-07   9.16e-05  40.5%
+Clock                  2.99e-05   2.94e-05   3.65e-08   5.94e-05  26.3%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.50e-04   7.56e-05   8.16e-07   2.26e-04 100.0%
+                          66.2%      33.4%       0.4%
+Corner: ss_100C_1v60
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.07e-04   1.15e-05   5.68e-07   1.19e-04  37.3%
+Combinational          7.27e-05   4.88e-05   5.35e-07   1.22e-04  38.2%
+Clock                  3.98e-05   3.84e-05   5.45e-08   7.83e-05  24.5%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.19e-04   9.87e-05   1.16e-06   3.19e-04 100.0%
+                          68.7%      30.9%       0.4%
+Corner: ss_n40C_1v28
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             3.87e-05   7.33e-06   1.13e-07   4.62e-05  27.4%
+Combinational          4.38e-05   3.12e-05   3.15e-11   7.50e-05  44.5%
+Clock                  2.28e-05   2.46e-05   1.60e-12   4.74e-05  28.1%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.05e-04   6.32e-05   1.13e-07   1.69e-04 100.0%
+                          62.5%      37.5%       0.1%
+Corner: ss_n40C_1v35
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             4.64e-05   8.15e-06   1.13e-07   5.46e-05  28.7%
+Combinational          4.74e-05   3.47e-05   3.92e-11   8.22e-05  43.3%
+Clock                  2.58e-05   2.74e-05   2.46e-12   5.32e-05  28.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.20e-04   7.03e-05   1.13e-07   1.90e-04 100.0%
+                          63.0%      37.0%       0.1%
+Corner: ss_n40C_1v40
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             5.47e-05   8.77e-06   1.13e-07   6.36e-05  30.3%
+Combinational          5.11e-05   3.74e-05   4.57e-11   8.85e-05  42.2%
+Clock                  2.81e-05   2.94e-05   3.49e-12   5.76e-05  27.5%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.34e-04   7.56e-05   1.13e-07   2.10e-04 100.0%
+                          63.9%      36.0%       0.1%
+Corner: ss_n40C_1v44
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             6.73e-05   9.28e-06   1.13e-07   7.67e-05  32.9%
+Combinational          5.56e-05   3.95e-05   5.34e-11   9.52e-05  40.9%
+Clock                  2.98e-05   3.11e-05   4.71e-12   6.10e-05  26.2%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.53e-04   7.99e-05   1.13e-07   2.33e-04 100.0%
+                          65.6%      34.3%       0.0%
+Corner: ss_n40C_1v60
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.06e-04   1.15e-05   1.13e-07   1.18e-04  37.8%
+Combinational          6.90e-05   4.88e-05   1.21e-10   1.18e-04  37.8%
+Clock                  3.76e-05   3.84e-05   1.65e-11   7.61e-05  24.4%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.13e-04   9.87e-05   1.13e-07   3.11e-04 100.0%
+                          68.3%      31.7%       0.0%
+Corner: ss_n40C_1v76
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.32e-04   1.39e-05   1.13e-07   1.46e-04  37.9%
+Combinational          8.78e-05   5.90e-05   3.52e-10   1.47e-04  38.1%
+Clock                  4.58e-05   4.65e-05   5.42e-11   9.23e-05  24.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.66e-04   1.19e-04   1.14e-07   3.85e-04 100.0%
+                          69.0%      31.0%       0.0%
+Corner: tt_025C_1v80
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.39e-04   1.45e-05   1.13e-07   1.54e-04  38.1%
+Combinational          9.08e-05   6.18e-05   4.40e-10   1.53e-04  37.9%
+Clock                  4.81e-05   4.87e-05   3.63e-11   9.67e-05  24.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.78e-04   1.25e-04   1.14e-07   4.03e-04 100.0%
+                          69.0%      31.0%       0.0%
+Corner: tt_100C_1v80
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.41e-04   1.45e-05   2.06e-07   1.56e-04  37.8%
+Combinational          9.60e-05   6.18e-05   1.24e-07   1.58e-04  38.3%
+Clock                  4.97e-05   4.87e-05   1.12e-08   9.83e-05  23.9%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.87e-04   1.25e-04   3.41e-07   4.12e-04 100.0%
+                          69.6%      30.3%       0.1%
